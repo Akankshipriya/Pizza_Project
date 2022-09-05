@@ -152,12 +152,12 @@ namespace Pizza_Project
 
                                 case 1:
                                     CSaleItem s1 = new CSaleItem();
-                                    s1.Add();
+                                    s1.add();
                                     break;
 
                                 case 2:
                                     CSaleItem s2 = new CSaleItem();
-                                    s2.displaySale();
+                                    s2.display();
                                     break;
 
                                 default:

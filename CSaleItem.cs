@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pizza_Project
 {
-    class CSaleItem:CEmployee
+    class CSaleItem : IMethods
     {
         private int sid;
         public string pizzaName;
@@ -16,25 +16,25 @@ namespace Pizza_Project
 
         public DateTime sellingtime = DateTime.Now.Date;
 
-        
+
         public string mode { get; set; }
 
 
         SqlConnection con = new SqlConnection(@"server=BHAVNAWKS651\SQLEXPRESS;database=pizza;Integrated Security=true;");
 
-        public void displaySale()
+        public void display()
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("select * from sales", con);
             SqlDataReader sdr = cmd.ExecuteReader();
             while (sdr.Read())
             {
-                Console.WriteLine("Sales id : " + sdr.GetValue(0) + "\n" + "Pizza Ordered : " + sdr.GetValue(1) + "\n" + "Employee id : " + sdr.GetValue(2)+"\n"+"Order Timing : "+ sdr.GetValue(3)+"\n"+"Mode : "+sdr.GetValue(4));
+                Console.WriteLine("Sales id : " + sdr.GetValue(0) + "\n" + "Pizza Ordered : " + sdr.GetValue(1) + "\n" + "Employee id : " + sdr.GetValue(2) + "\n" + "Order Timing : " + sdr.GetValue(3) + "\n" + "Mode : " + sdr.GetValue(4));
             }
             con.Close();
         }
 
-        public int Add()
+        public int add()
         {
             int flag = 0;
             try
@@ -48,7 +48,7 @@ namespace Pizza_Project
                 Console.WriteLine("Enter the mode");
                 mode = Console.ReadLine();
 
-                
+
 
                 con.Open();
                 Console.WriteLine($"insert into sales values('{pizzaName}',{eId},'{sellingtime}','{mode}')");
@@ -67,7 +67,7 @@ namespace Pizza_Project
 
         }
 
-        public int Delete()
+        public int delete()
         {
             int flag = 0;
             try
@@ -77,7 +77,7 @@ namespace Pizza_Project
                 con.Open();
                 SqlCommand cmd = new SqlCommand("delete from sales where id=" + sid + "", con);
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("product with id:" + sid);
+                Console.WriteLine("product with id:" + sid+ " deleted successfully");
                 con.Close();
                 flag = 1;
             }
