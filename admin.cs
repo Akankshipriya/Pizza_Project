@@ -76,6 +76,7 @@ namespace Pizza_Project
                 SqlCommand cmd = new SqlCommand($"insert into admin values('{name}','{password}')", con);
 
                 cmd.ExecuteNonQuery();
+                con.Close();
                 Console.WriteLine("Admin record inserted successfully");
                 flag = 1;
             }

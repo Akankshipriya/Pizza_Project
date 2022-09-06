@@ -55,6 +55,7 @@ namespace Pizza_Project
                 SqlCommand cmd = new SqlCommand($"insert into sales(pizzaname,employeeid,sale,mode) values('{pizzaName}',{eId},'{sellingtime}','{mode}')", con);
 
                 cmd.ExecuteNonQuery();
+                con.Close();
                 Console.WriteLine("inserted successfully");
                 flag = 1;
             }
@@ -88,8 +89,5 @@ namespace Pizza_Project
             }
             return flag;
         }
-
-
-
     }
 }

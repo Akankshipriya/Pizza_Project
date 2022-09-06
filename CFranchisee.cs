@@ -76,6 +76,7 @@ namespace Pizza_Project
                 SqlCommand cmd = new SqlCommand($"insert into Franchisee values('{name}','{Pincode}')", con);
 
                 cmd.ExecuteNonQuery();
+                con.Close();
                 Console.WriteLine("Franchisee record registered successfully");
                 flag = 1;
             }
@@ -109,7 +110,5 @@ namespace Pizza_Project
             }
             return flag;
         }
-
-
     }
 }

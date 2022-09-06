@@ -98,6 +98,7 @@ namespace Pizza_Project
                                     {
                                         Console.WriteLine("Employee Name : " + sdr2.GetValue(0) + "\n" + "Employee Salary : " + sdr2.GetValue(1));
                                     }
+                                    con.Close();
                                     Console.WriteLine("Press yes to confirm distribution");
                                     string conf = Console.ReadLine();
                                     if (conf =="yes")
@@ -120,7 +121,7 @@ namespace Pizza_Project
                                     {
                                         Console.WriteLine("Sales id : " + sdr1.GetValue(0) + "\n" + "Pizza Ordered : " + sdr1.GetValue(1) + "\n" + "Employee id : " + sdr1.GetValue(2) + "\n" + "Order Timing : " + sdr1.GetValue(3) + "\n" + "Mode : " + sdr1.GetValue(4));
                                     }
-
+                                    con.Close();
                                     break;
 
                                 case 4:
@@ -133,6 +134,7 @@ namespace Pizza_Project
                                     {
                                         Console.WriteLine("Sales id : " + sdr.GetValue(0) + "\n" + "Pizza Ordered : " + sdr.GetValue(1) + "\n" + "Employee id : " + sdr.GetValue(2) + "\n" + "Order Timing : " + sdr.GetValue(3) + "\n" + "Mode : " + sdr.GetValue(4));
                                     }
+                                    con.Close();
                                     break;
                                 default:
                                     Console.WriteLine("Enter valid choice");

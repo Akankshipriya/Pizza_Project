@@ -37,6 +37,7 @@ namespace Pizza_Project
                 SqlCommand cmd = new SqlCommand($"insert into employee values('{ename}','{phoneNumber}','{email}',{salary})", con);
 
                 cmd.ExecuteNonQuery();
+                con.Close();
                 Console.WriteLine("Inserted successfully");
                 flag = 1;
             }
